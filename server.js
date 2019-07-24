@@ -4,10 +4,7 @@ require('dotenv').config();
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const MongoClient = require('mongodb').MongoClient;
-const passport = require('passport');
-const GitHubStrategy =  require('passport-github').Strategy;
 const assert = require('assert');
 
 const routes = require('./routes');
