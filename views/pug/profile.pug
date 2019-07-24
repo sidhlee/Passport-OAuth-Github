@@ -1,0 +1,19 @@
+html 
+  head 
+    title FCC Advanced Node and Express 
+    meta(name='description' content="Profile Page") 
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge') 
+    meta(name='viewport' content='width=device-width, initial-scale=1') 
+    link(rel='stylesheet' href='/public/style.css') 
+  body 
+    h1.border.center FCC Advanced Node ad Express 
+    h2.center Social Login 
+    .profile.center 
+      img(src=user.photo style='width:150px; border-radius:25%') 
+      h3=user.name 
+      //- todo: pretty print user object
+      p #{JSON.stringify(user, null, 4)} 
+      a(href='/logout') Logout 
+      script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
+      script(src="/public/script.js")
