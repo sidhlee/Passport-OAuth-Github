@@ -5,6 +5,7 @@ const assert = require('assert');
 
 module.exports = function(app, db) {
   
+  // add middlewares for auth: express-session, passport.initialize(), passport.session()
   app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: true,
@@ -16,7 +17,7 @@ module.exports = function(app, db) {
  
 
   passport.serializeUser((user, done) => {
-     done(null, user.id); // corrected from 'return done(null, user.id)'
+     done(null, user.id); 
   });
 
   passport.deserializeUser((id, done) => {
@@ -24,6 +25,16 @@ module.exports = function(app, db) {
       {id: id},
       (err, doc) => {
         console.log("deserialized: " + JSON.stringify(doc, null, '\t')); // pretty prints objects
+  //       deserialized: {
+  //         "_id": "5d36a4289e4b5509cc48d7b2",
+  //         "id": "43853846",
+  //         "created_on": "2019-07-23T06:07:36.173Z",
+  //         "email": "No public email",
+  //         "last_login": "2019-07-24T12:09:51.924Z",
+  //         "login_count": 29,
+  //         "name": "HAYOUN LEE",
+  //         "photo": "https://avatars3.githubusercontent.com/u/43853846?v=4"
+  // }
         done(null, doc);
       }
     );
